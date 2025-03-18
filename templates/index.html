@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}首页 - 个人博客{% endblock %}
+
+{% block content %}
+<section class="blog-list">
+    <h2>最新文章</h2>
+    
+    {% for post in blog_posts %}
+    <article class="blog-card">
+        <h3><a href="{{ url_for('post', post_id=post.id) }}" target="_blank">{{ post.title }}</a></h3>
+        <div class="quote"><strong>{{ post.quote }}</strong></div>
+        <div class="comment">{{ post.comment }}</div>
+        <div class="preview">{{ post.preview }}</div>
+        <a href="{{ url_for('post', post_id=post.id) }}" class="read-more" target="_blank">阅读全文</a>
+    </article>
+    {% else %}
+    <p>暂无文章</p>
+    {% endfor %}
+</section>
+{% endblock %}
