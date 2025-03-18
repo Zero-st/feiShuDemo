@@ -81,5 +81,9 @@ def post(post_id):
         return render_template('post.html', post=post)
     return redirect(url_for('index'))
 
+# 修改最后的运行部分
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+
+# 添加这一行，用于 Vercel 部署
+app = app
